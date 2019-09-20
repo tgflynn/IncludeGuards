@@ -1,9 +1,22 @@
 
+using Test
 using IncludeGuards
 
-@includeonce "TestModule.jl"
+@testset "Working tests" begin
 
-show( IOContext( stdout, :limit => false ), IncludeGuards.GUARDS )
-println()
+	@includeonce "TestModuleWorking.jl"
 
-@includeonce "TestModule.jl"
+	@test true
+
+	show( IOContext( stdout, :limit => false ), IncludeGuards.GUARDS )
+	println()
+
+	@includeonce "TestModuleWorking.jl"
+
+end
+
+@testset "Broken tests" begin
+
+	#@test_throws LoadError include("TestModuleBroken.jl")
+
+end
