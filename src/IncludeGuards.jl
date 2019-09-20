@@ -16,13 +16,13 @@ macro includeonce(filename)
 			     __module__,
 			     "-include:",
 			     filename)
-	println("__source__ = ", __source__, ", __module__ = ", __module__, ", locationkey = ", locationkey)
+	@debug "includeonce::"  __source__ __module__ locationkey
 	if locationkey in GUARDS
-		println("skipping include:", filename)
+		@debug "includeonce: skipping include:" filename
 		return nothing
 	end
 	push!(GUARDS, locationkey)
-	println("including:", filename)
+	@debug "includeonce: including:" filename
 	return :( Base.include($__module__, $filename) )
 end
 

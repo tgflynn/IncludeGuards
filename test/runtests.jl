@@ -8,7 +8,7 @@ using IncludeGuards
 
 	@test true
 
-	show( IOContext( stdout, :limit => false ), IncludeGuards.GUARDS )
+	@debug "runtests: GUARDS = " IncludeGuards.GUARDS
 	println()
 
 	@includeonce "TestModuleWorking.jl"
