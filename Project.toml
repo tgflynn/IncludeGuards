@@ -1,0 +1,4 @@
+name = "IncludeGuards"
+uuid = "602595d6-5ed0-452f-b795-49c97f2b134a"
+authors = ["Timothy G. Flynn <tgflynn@users.noreply.github.com>"]
+version = "0.1.0"
