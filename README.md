@@ -51,7 +51,7 @@ places.  To see an example of this sort of thing you can try running:
 
 from this package's directory.
 
-IncludeGuards provides a workaround for this problem by giving you a way to insure that your modules are 
+IncludeGuards provides a workaround for this problem by giving you a way to ensure that your modules are 
 loaded once and only once within each module (this will be Main, if you aren't nesting modules).
 
 Usage
