@@ -1,16 +1,16 @@
 module IncludeGuards
 
-export @includeonce
+export @includeonce, reinclude
 
 GUARDS = Set{String}()
 
 macro includeonce(filename)
 	global GUARDS
-	location = string(__source__.file, "-line:", __source__.line)
-	if location in GUARDS
+	locationkey = string(__source__.file, "-module:", __module__)
+	if locationkey in GUARDS
 		return nothing
 	end
-	push!(GUARDS, location)
+	push!(GUARDS, locationkey)
 	return :( include($filename) )
 end
 
