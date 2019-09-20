@@ -14,9 +14,3 @@ using IncludeGuards
 	@includeonce "TestModuleWorking.jl"
 
 end
-
-@testset "Broken tests" begin
-
-	#@test_throws LoadError include("TestModuleBroken.jl")
-
-end
