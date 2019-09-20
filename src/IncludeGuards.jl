@@ -6,12 +6,18 @@ GUARDS = Set{String}()
 
 macro includeonce(filename)
 	global GUARDS
-	locationkey = string(__source__.file, "-module:", __module__)
+	locationkey = string( "module:", 
+			     __module__,
+			     "-include:",
+			     filename)
+	println("__source__ = ", __source__, ", __module__ = ", __module__, ", locationkey = ", locationkey)
 	if locationkey in GUARDS
+		println("skipping include:", filename)
 		return nothing
 	end
 	push!(GUARDS, locationkey)
-	return :( include($filename) )
+	println("including:", filename)
+	return :( Base.include($__module__, $filename) )
 end
 
 function reinclude(filename::String)
