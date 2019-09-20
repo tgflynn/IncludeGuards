@@ -4,6 +4,12 @@ export @includeonce, @reinclude
 
 GUARDS = Set{String}()
 
+"""
+  Usage: `@includeonce "filename"`
+
+  Use instead of include to ensure that the file is included once and only once
+  within this module.
+"""
 macro includeonce(filename)
 	global GUARDS
 	locationkey = string( "module:", 
@@ -20,6 +26,12 @@ macro includeonce(filename)
 	return :( Base.include($__module__, $filename) )
 end
 
+"""
+  Usage: `@reinclude "filename"`
+
+  For use during development from the REPL.  Resets all include guards so that
+  modified code gets reloaded.
+"""
 macro reinclude(filename::String)
 	clear()
 	return :( Base.include($__module__, $filename) )
