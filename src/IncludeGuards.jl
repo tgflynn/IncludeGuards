@@ -1,6 +1,6 @@
 module IncludeGuards
 
-export @includeonce, reinclude
+export @includeonce, @reinclude
 
 GUARDS = Set{String}()
 
@@ -20,9 +20,9 @@ macro includeonce(filename)
 	return :( Base.include($__module__, $filename) )
 end
 
-function reinclude(filename::String)
+macro reinclude(filename::String)
 	clear()
-	include(filename)
+	return :( Base.include($__module__, $filename) )
 end
 
 function clear()
