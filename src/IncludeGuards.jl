@@ -1,3 +1,11 @@
+"""
+  Provides an include guard mechanism for julia.
+
+  exports:
+
+    * @includeonce
+    * @reinclude
+"""
 module IncludeGuards
 
 export @includeonce, @reinclude
