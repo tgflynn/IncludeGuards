@@ -9,7 +9,7 @@ The primary features it provides are the following two macro calls:
 
  * `@includeonce "file"`
 
-    Insures that file will be included once and only once within this module.
+    Ensures that file will be included once and only once within this module.
 
  * `@reinclude "file"`
    
